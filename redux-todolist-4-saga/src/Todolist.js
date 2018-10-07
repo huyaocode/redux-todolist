@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import store from './store/index.js'
 import 'antd/dist/antd.css'
-import axios from 'axios'
 import TodolistUI from './TodolistUI'
 import {
   getHandleInputChange,
   getHandleSubmitClick,
   getHandleItemClick,
-  getInitListData
+  getInitList
 } from './store/actionCreators.js'
 
 /**
@@ -39,13 +38,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get('/api/list.json')
-      .then((res) => {
-        const list = res.data;
-        const action = getInitListData(list);
-        store.dispatch(action);
-      })
+    const action = getInitList();
+    store.dispatch(action);
   }
 
   //input改变

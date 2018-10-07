@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, List } from 'antd'
+import { Input, Button, List, Icon } from 'antd'
 
 /**
  * UI组件（傻瓜组件）一般可以改写为下面的函数的形式，也就是【无状态组件】
@@ -29,9 +29,15 @@ const TodolistUI = props => {
         dataSource={list}
         renderItem={(item, index) => (
           <List.Item
-            onClick={() => {
-              handleItemClick(index)
-            }}
+            actions={[
+              <Icon
+                onClick={() => {
+                  handleItemClick(index)
+                }}
+                type="close"
+                theme="outlined"
+              />
+            ]}
           >
             {item}
           </List.Item>

@@ -4,7 +4,7 @@
  * 所有的action都放在这里，会让逻辑更清晰
  */
 
-import { ADD_TODO_ITEM, CAHNGE_INPUT_VALUE, DELETE_TODO_ITEM, INIT_LIST_DATA} from './actionType'
+import { ADD_TODO_ITEM, CAHNGE_INPUT_VALUE, DELETE_TODO_ITEM, INIT_LIST_DATA, GET_INIT_LIST} from './actionType'
 
 export const getHandleInputChange = (value) => ({
   type: CAHNGE_INPUT_VALUE,
@@ -21,7 +21,11 @@ export const getHandleItemClick = (value) => ({
   value
 })
 
-export const getInitListData = (value) => ({
+export const initListData = (value) => ({
   type: INIT_LIST_DATA,
   value
+})
+
+export const getInitList = () => ({
+  type: GET_INIT_LIST
 })
